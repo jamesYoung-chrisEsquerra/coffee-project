@@ -26,17 +26,38 @@ var coffeesArray = [
 //     return html;
 // }
 
-function renderCoffees(array) {
-    for(var i = 1; i< array.length; i++) {
-        var html = '';
-        var target = document.getElementsByClassName("name"[i]);
-        target.innerHTML = html += array[i].name;
-        console.log(html);
 
+
+var names = document.getElementsByClassName("name");
+function renderCoffees (array) {
+    for(var i = 0; i< array.length; i++) {
+        var text = "";
+        text = coffeesArray[i].name;
+        array[i].innerText = text;
     }
-    return target.innerHTML;
 }
-renderCoffees(coffeesArray);
+renderCoffees(names);
+
+var roast = document.getElementsByClassName("roast");
+function renderRoasts (array) {
+    for(var i = 0; i< array.length; i++) {
+        var text = "";
+        text = coffeesArray[i].roast;
+        array[i].innerText = text;
+    }
+}
+renderRoasts(roast);
+// var headerTextList = document.getElementsByClassName("name");
+// function renderCoffees(array) {
+//     for(var i = 0; i< array.length; i++) {
+//         var html = "";
+//         html = array[i].name;
+//         headerTextList.innerText = "html";
+//         console.log(headerTextList.innerText);
+//
+//     }
+// }
+// renderCoffees(coffeesArray);
 
 // function updateCoffees(e) {
 //     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -52,12 +73,6 @@ renderCoffees(coffeesArray);
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 
-
-var lightRoast = document.getElementsByClassName("roastType1");
-var mediumRoast = document.getElementsByClassName("roastType2");
-var darkRoast = document.getElementsByClassName("roastType3");
-
-
 // var tbody = document.querySelector('#coffees');
 // var submitButton = document.querySelector('#submit');
 // var roastSelection = document.querySelector('#roast-selection');
@@ -65,3 +80,12 @@ var darkRoast = document.getElementsByClassName("roastType3");
 // tbody.innerHTML = renderCoffees(coffees);
 
 // submitButton.addEventListener('click', updateCoffees);
+
+
+
+
+
+
+
+
+
