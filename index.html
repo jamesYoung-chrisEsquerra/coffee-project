@@ -12,10 +12,11 @@
 
     <form>
         <label for="roast-selection"></label>
-        <select id="roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
+        <select id="roast-selection" onchange="updateCoffees()">
+            <option id="all">all</option>
+            <option id="light">light</option>
+            <option id="medium">medium</option>
+            <option id="dark">dark</option>
         </select>
         <input id="submit" type="submit"/>
 

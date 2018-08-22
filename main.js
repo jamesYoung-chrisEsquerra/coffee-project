@@ -20,7 +20,11 @@ var coffeesArray = [
 
 var names = document.getElementsByClassName("name");
 function renderCoffees (array) {
-    for(var i = 0; i< array.length; i++) {
+    var length = array.length;
+    if(coffeesArray.length <array.length) {
+        length = coffeesArray.length;
+    }
+    for(var i = 0; i<length; i++) {
         var text = "";
         text = coffeesArray[i].name;
         array[i].innerText = text;
@@ -30,7 +34,11 @@ renderCoffees(names);
 
 var roast = document.getElementsByClassName("roast");
 function renderRoasts (array) {
-    for(var i = 0; i< array.length; i++) {
+    var length = array.length;
+    if(coffeesArray.length <array.length) {
+        length = coffeesArray.length;
+    }
+    for(var i = 0; i<length; i++) {
         var text = "";
         text = coffeesArray[i].roast;
         array[i].innerText = text;
@@ -56,34 +64,47 @@ function coffeeSearch () {
 };
 
 
-// function coffeeSearch(){
-//     var links = searchItem[0].getElementsByTagName("a")[0];
-//         if (links.innerHTML.toLowerCase()=== lowerInput.indexOf(-1)){
-//             searchItem[0].style.display = "none";
-//         }else {
-//             searchItem[0].style.display = "";
-//         }
-// };
+function updateCoffees () {
+    var roastSelection = document.getElementById("roast-selection").value;
+    // var searchList = document.getElementById("coffeeSelection");
+    // var searchRoast = searchList.getElementsByClassName("roast");
+    var filteredCoffees = [];
+    for (var i = 0; i < coffeesArray.length; i++) {
+        if (coffeesArray[i] == roastSelection) {
+            filteredCoffees.push(coffeesArray[i]);
+            console.log(filteredCoffees);
+        }
+    }
+    coffeesArray = filteredCoffees;
+    renderCoffees(name);
+    renderRoasts(roast);
+};
+
+// roastSelection.addEventListener('change', updateCoffees,);
+
+
 // function updateCoffees(e) {
+//     var searchRoast = searchList.getElementsByClassName("roast");
 //     e.preventDefault(); // don't submit the form, we just want to update the data
-//     var selectedRoast = roastSelection.value;
+//     var selectedRoast = roastSelection;
 //     var filteredCoffees = [];
-//     coffees.forEach(function(coffee) {
+//     coffeesArray.forEach(function(coffee) {
 //         if (coffee.roast === selectedRoast) {
 //             filteredCoffees.push(coffee);
 //         }
 //     });
 //     tbody.innerHTML = renderCoffees(filteredCoffees);
 // }
-
-// from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-
-// var tbody = document.querySelector('#coffees');
+//
+//
+// // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+//
+var tbody = document.querySelector('#coffees');
 // var submitButton = document.querySelector('#submit');
 // var roastSelection = document.querySelector('#roast-selection');
-
-// tbody.innerHTML = renderCoffees(coffees);
-
+//
+// tbody.innerHTML = renderCoffees(coffeesArray);
+// roastSelection.addEventListener('change', updateCoffees);
 // submitButton.addEventListener('click', updateCoffees);
 
 
