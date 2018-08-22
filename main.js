@@ -16,16 +16,6 @@ var coffeesArray = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
-//
-//     return html;
-// }
-
 
 
 var names = document.getElementsByClassName("name");
@@ -47,18 +37,33 @@ function renderRoasts (array) {
     }
 }
 renderRoasts(roast);
-// var headerTextList = document.getElementsByClassName("name");
-// function renderCoffees(array) {
-//     for(var i = 0; i< array.length; i++) {
-//         var html = "";
-//         html = array[i].name;
-//         headerTextList.innerText = "html";
-//         console.log(headerTextList.innerText);
-//
-//     }
-// }
-// renderCoffees(coffeesArray);
 
+
+
+function coffeeSearch () {
+    var input = document.getElementById("searchCoffee");
+    var lowerInput = input.value.toLowerCase();
+    var searchList = document.getElementById("coffeeSelection");
+    var searchItem = searchList.getElementsByTagName("li");
+    for (var i = 0; i < searchItem.length; i++) {
+        var links = searchItem[i].getElementsByTagName("a")[0];
+        if (links.innerHTML.toLowerCase().indexOf(lowerInput) > -1){
+            searchItem[i].style.display = "";
+        } else {
+            searchItem[i].style.display = "none";
+        }
+    }
+};
+
+
+// function coffeeSearch(){
+//     var links = searchItem[0].getElementsByTagName("a")[0];
+//         if (links.innerHTML.toLowerCase()=== lowerInput.indexOf(-1)){
+//             searchItem[0].style.display = "none";
+//         }else {
+//             searchItem[0].style.display = "";
+//         }
+// };
 // function updateCoffees(e) {
 //     e.preventDefault(); // don't submit the form, we just want to update the data
 //     var selectedRoast = roastSelection.value;

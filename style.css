@@ -1,9 +1,9 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
+#coffeeSelection {
+    list-style: none;
+    padding: 1em;
+    margin: 0;
 }
-
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+#coffeeSelection a {
+    color: black;
+    text-decoration: none;
 }
