@@ -104,7 +104,7 @@ var tbody = document.querySelector('#coffees');
 // var roastSelection = document.querySelector('#roast-selection');
 //
 // tbody.innerHTML = renderCoffees(coffeesArray);
-// roastSelection.addEventListener('change', updateCoffees);
+roastSelection.addEventListener('change', updateCoffees);
 // submitButton.addEventListener('click', updateCoffees);
 
 
