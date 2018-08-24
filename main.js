@@ -21,7 +21,7 @@ var coffeesArray = [
 var names = document.getElementsByClassName("name");
 function renderCoffees (array) {
     var length = array.length;
-    if(coffeesArray.length <array.length) {
+    if(coffeesArray.length >array.length) {
         length = coffeesArray.length;
     }
     for(var i = 0; i<length; i++) {
@@ -35,7 +35,7 @@ renderCoffees(names);
 var roast = document.getElementsByClassName("roast");
 function renderRoasts (array) {
     var length = array.length;
-    if(coffeesArray.length <array.length) {
+    if(coffeesArray.length >array.length) {
         length = coffeesArray.length;
     }
     for(var i = 0; i<length; i++) {
@@ -63,49 +63,104 @@ function coffeeSearch () {
     }
 };
 
-
-function updateCoffees () {
-    var roastSelection = document.getElementById("roast-selection").value;
-    // var searchList = document.getElementById("coffeeSelection");
-    // var searchRoast = searchList.getElementsByClassName("roast");
-    var filteredCoffees = [];
-    for (var i = 0; i < coffeesArray.length; i++) {
-        if (coffeesArray[i] == roastSelection) {
-            filteredCoffees.push(coffeesArray[i]);
-            console.log(filteredCoffees);
+function roastSearch(){
+    var input = document.getElementById("roast-selection").value;
+    var searchList = document.getElementById("coffeeSelection");
+    var searchItems = searchList.getElementsByTagName("li");
+    for (var i=0; i<coffeesArray.length; i++){
+        if (input==="all"){
+            searchItems[i].style.display = "inline";
+        }else if (input ===coffeesArray[i].roast){
+            searchItems[i].style.display = "inline";
+        }else{
+            searchItems[i].style.display = "none";
         }
     }
-    coffeesArray = filteredCoffees;
-    renderCoffees(name);
-    renderRoasts(roast);
-};
-
-// roastSelection.addEventListener('change', updateCoffees,);
+}
 
 
-// function updateCoffees(e) {
-//     var searchRoast = searchList.getElementsByClassName("roast");
-//     e.preventDefault(); // don't submit the form, we just want to update the data
-//     var selectedRoast = roastSelection;
+// function filterLight (){
+//     var input = document.getElementById("light").value;
+//     var searchlist = document.getElementById("coffeeSelection");
+//     var displayitems = searchlist.getElementsByTagName("li");
+//     console.log(input);
+//     for (var i = 0; i < coffeesArray.length; i++) {
+//         console.log(coffeesArray[i].roast);
+//         if (input== coffeesArray[i].roast){
+//             console.log(coffeesArray[i]);
+//             displayitems[i].style.display = "inline";
+//         }else {
+//             displayitems[i].style.display = "none";
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+// function updateCoffees () {
+//     e.preventDefault();
+//     var roastSelection = document.getElementById("roast-selection").value;
 //     var filteredCoffees = [];
-//     coffeesArray.forEach(function(coffee) {
+//     for (var i = 0; i < coffeesArray.length; i++) {
+//         if (coffeesArray[i] == roastSelection) {
+//             filteredCoffees.push(coffeesArray[i]);
+//             console.log(filteredCoffees);
+//         }
+//     }
+//     coffeesArray = filteredCoffees;
+//     renderCoffees(name);
+//     renderRoasts(roast);
+// };
+
+
+
+//
+// function updateCoffees(e){
+//     e.preventDefault();
+//     var roastSelection = document.getElementById("roast-selection").value;
+//     var filteredCoffees=[];
+//     coffeesArray.forEach(function(coffee){
+//         if (coffee.roast === roastSelection){
+//             filteredCoffees.push(coffee);
+//         }else if (coffee.calling===roastSelection){
+//             filteredCoffees.push(coffee);
+//         }
+//     });
+//     roast.innerHTML =renderCoffees(filteredCoffees);
+// }
+//
+//
+// var submitButton = document.querySelector('#submit');
+// submitButton.addEventListener('click', updateCoffees);
+// function updateCoffees(e) {
+//     e.preventDefault(); // don't submit the form, we just want to update the data
+//     var selectedRoast = roastSelection.value;
+//     var filteredCoffees = [];
+//     coffees.forEach(function(coffee) {
 //         if (coffee.roast === selectedRoast) {
 //             filteredCoffees.push(coffee);
 //         }
 //     });
 //     tbody.innerHTML = renderCoffees(filteredCoffees);
 // }
+// var submitButton = document.querySelector('#submit');
+
+// }
 //
 //
 // // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 //
 var tbody = document.querySelector('#coffees');
-// var submitButton = document.querySelector('#submit');
+//
 // var roastSelection = document.querySelector('#roast-selection');
 //
 // tbody.innerHTML = renderCoffees(coffeesArray);
-roastSelection.addEventListener('change', updateCoffees);
-// submitButton.addEventListener('click', updateCoffees);
+// roastSelection.addEventListener('change', updateCoffees);
+
 
 
 
